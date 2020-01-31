@@ -65,6 +65,10 @@ select {
   font: inherit;
 }
 
+button {
+  border: none;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -74,5 +78,3 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
-/*# sourceMappingURL=/reset.65931110.css.map */

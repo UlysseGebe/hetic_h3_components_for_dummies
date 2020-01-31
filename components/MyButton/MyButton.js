@@ -36,8 +36,16 @@ export default class AcButton extends HTMLElement {
     return this.getAttribute('text');
   }
 
+  set text(val) {
+    return this.setAttribute('text', val);
+  }
+
   get size() {
     return this.getAttribute('size');
+  }
+
+  set size(val) {
+    return this.setAttribute('size', val);
   }
 
   get icon() {
@@ -48,17 +56,31 @@ export default class AcButton extends HTMLElement {
     return this.getAttribute('is-loading');
   }
 
+  set isLoading(val) {
+    return this.setAttribute('is-loading', val);
+  }
+
   get tag() {
     return this.getAttribute('tag');
   }
 
+  set tag(val) {
+    return this.setAttribute('tag', val);
+  }
+
   static get observedAttributes() {
-    return ['look', 'text', 'size', 'icon', 'is-loading', 'tag'];
+    return [
+      'look',
+      'text',
+      'size',
+      'icon',
+      'is-loading',
+      'tag'
+    ];
   }
 
   connectedCallback() {
     this._render();
-    console.log(this.innerHTML);
     this.addEventListener('click', this._onClick);
   }
 
@@ -100,12 +122,45 @@ export default class AcButton extends HTMLElement {
         
         .my-button--primary {
           background-image: var(--gradient-purple);
+          box-shadow: var(--button-border);
+          color: var(--white);
+        }
+
+        .my-button--primary:hover {
+          background-image: linear-gradient(to bottom, var(--color-app), var(--purple-800));
+        }
+
+        .my-button--primary svg {
+          fill: currentColor;
         }
         
         .my-button--secondary {
           background-image: var(--gradient-grey);
         }
+
+        .my-button__icon {
+          width: var(--button-icon-size);
+          height: var(--button-icon-size);
+        }
       </style>
+    `;
+  }
+
+  _renderContent() {
+    return this.isLoading ? this._renderLoadingIcon() : `<span class="my-button__text">${this.text}</span>`;
+  }
+
+  _renderLoadingIcon() {
+    return `
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        class="my-button__icon is-rotating"
+      >
+        <path d="M8 16c-2.137 0-4.146-.832-5.657-2.343s-2.343-3.52-2.343-5.657c0-1.513.425-2.986 1.228-4.261.781-1.239 1.885-2.24 3.193-2.895l.672 1.341c-1.063.533-1.961 1.347-2.596 2.354-.652 1.034-.997 2.231-.997 3.461 0 3.584 2.916 6.5 6.5 6.5s6.5-2.916 6.5-6.5c0-1.23-.345-2.426-.997-3.461-.635-1.008-1.533-1.822-2.596-2.354l.672-1.341c1.308.655 2.412 1.656 3.193 2.895.803 1.274 1.228 2.748 1.228 4.261 0 2.137-.832 4.146-2.343 5.657s-3.52 2.343-5.657 2.343z"/>
+      </svg>
     `;
   }
 
@@ -115,7 +170,7 @@ export default class AcButton extends HTMLElement {
       <button
         class="my-button my-button--${this.look}"
       >
-        ${this.text}
+        ${this._renderContent()}
       </button>
     `;
   }

@@ -108,6 +108,8 @@
   --neutral-100A: rgba(20, 20, 20, 0.16);
   --neutral-050A: rgba(20, 20, 20, 0.08);
 
+  --color-app: var(--purple-500);
+
   --gradient-purple: linear-gradient(to bottom, var(--purple-500), var(--purple-700));
   --gradient-grey: linear-gradient(to bottom, var(--neutral-050), var(--neutral-100));
 
@@ -124,6 +126,23 @@
   --button-icon-size: 14px;
 }
 
-.my-button {
-  border: none;
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotate {
+  from { transform: none; }
+  to { transform: rotate(1turn); }
+}
+
+.is-rotating {
+  animation: rotate 1s infinite linear;
 }
