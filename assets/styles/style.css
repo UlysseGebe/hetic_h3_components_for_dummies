@@ -1,0 +1,129 @@
+:root {
+  --font-primary: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --base-space-1: 8px;
+  --base-space-2: 16px;
+  --base-space-3: 24px;
+  --base-space-4: 32px;
+  --base-space-5: 40px;
+  --base-space-6: 48px;
+  --base-space-7: 56px;
+  --base-space-8: 64px;
+  --base-space-9: 72px;
+  --base-space-10: 80px;
+
+  --purple-050: rgba(239, 235, 250, 1);
+  --purple-100: rgba(221, 209, 245, 1);
+  --purple-200: rgba(200, 182, 239, 1);
+  --purple-300: rgba(171, 143, 231, 1);
+  --purple-400: rgba(151, 116, 225, 1);
+  --purple-500: rgba(132, 91, 220, 1);
+  --purple-600: rgba(111,67,208, 1);
+  --purple-700: rgba(96, 50, 195, 1);
+  --purple-800: rgba(77, 33, 172, 1);
+  --purple-900: rgb(65, 22, 157, 1);
+
+  --blue-050: rgba(229, 241, 254, 1);
+  --blue-100: rgba(200, 224, 254, 1);
+  --blue-200: rgba(168, 205, 254, 1);
+  --blue-300: rgba(118, 179, 253, 1);
+  --blue-400: rgba(88, 161, 253, 1);
+  --blue-500: rgba(57, 145, 253, 1);
+  --blue-600: rgba(49, 124, 218, 1);
+  --blue-700: rgba(22, 107, 213, 1);
+  --blue-800: rgba(14, 91, 187, 1);
+  --blue-900: rgba(11, 75, 155, 1);
+
+  --green-050: rgba(235, 249, 237, 1);
+  --green-100: rgba(210, 242, 216, 1);
+  --green-200: rgba(183, 234, 193, 1);
+  --green-300: rgba(143, 222, 158, 1);
+  --green-400: rgba(117, 215, 135, 1);
+  --green-500: rgba(92, 208, 114, 1);
+  --green-600: rgba(87, 193, 106, 1);
+  --green-700: rgba(64, 185, 86, 1);
+  --green-800: rgba(43, 125, 59, 1);
+  --green-900: rgba(32, 96, 45, 1);
+
+  --yellow-050: rgba(255, 248, 229, 1);
+  --yellow-100: rgba(255, 239, 197, 1);
+  --yellow-200: rgba(255, 230, 162, 1);
+  --yellow-300: rgba(255, 217, 111, 1);
+  --yellow-400: rgba(255, 208, 77, 1);
+  --yellow-500: rgba(255, 200, 44, 1);
+  --yellow-600: rgba(248, 191, 31, 1);
+  --yellow-700: rgba(248, 183, 0, 1);
+  --yellow-800: rgba(168, 124, 0, 1);
+  --yellow-900: rgba(129, 94, 0, 1);
+
+  --red-050: rgba(252, 228, 234, 1);
+  --red-100: rgba(249, 195, 207, 1);
+  --red-200: rgba(246, 159, 179, 1);
+  --red-300: rgba(241, 106, 138, 1);
+  --red-400: rgba(238, 72, 110, 1);
+  --red-500: rgba(235, 38, 84, 1);
+  --red-600: rgba(213, 28, 71, 1);
+  --red-700: rgba(190, 8, 51, 1);
+  --red-800: rgba(128, 5, 34, 1);
+  --red-900: rgba(99, 4, 25, 1);
+  
+  --white: #fff;
+  --grey: #dedede;
+  --black: #141414;
+
+  --greyL1: #f7f7f7;
+  --greyD1: #c6c6c6;
+  --greyD2: #adadad;
+
+  --white-050A: rgba(255, 255, 255, 0.08);
+  --white-100A: rgba(255, 255, 255, 0.16);
+  --white-200A: rgba(255, 255, 255, 0.24);
+  --white-300A: rgba(255, 255, 255, 0.32);
+  --white-400A: rgba(255, 255, 255, 0.4);
+  --white-500A: rgba(255, 255, 255, 0.48);
+  --white-600A: rgba(255, 255, 255, 0.56);
+  --white-700A: rgba(255, 255, 255, 0.64);
+  --white-800A: rgba(255, 255, 255, 0.72);
+  --white-900A: rgba(255, 255, 255, 0.8);
+
+  --neutral-050: rgba(253, 253, 253, 1);
+  --neutral-100: rgba(244, 244, 244, 1);
+  --neutral-200: rgba(240, 240, 240, 1);
+  --neutral-300: rgba(232, 232, 232, 1);
+  --neutral-400: rgba(227, 227, 227, 1);
+  --neutral-500: rgba(222, 222, 222, 1);
+  --neutral-600: rgba(213, 213, 213, 1);
+  --neutral-700: rgba(185, 185, 185, 1);
+  --neutral-800: rgba(151, 151, 151, 1);
+  --neutral-900: rgba(102, 102, 102, 1);
+
+  --neutral-900A: rgba(20, 20, 20, 0.80);
+  --neutral-800A: rgba(20, 20, 20, 0.72);
+  --neutral-700A: rgba(20, 20, 20, 0.64);
+  --neutral-600A: rgba(20, 20, 20, 0.56);
+  --neutral-500A: rgba(20, 20, 20, 0.48);
+  --neutral-400A: rgba(20, 20, 20, 0.40);
+  --neutral-300A: rgba(20, 20, 20, 0.32);
+  --neutral-200A: rgba(20, 20, 20, 0.24);
+  --neutral-100A: rgba(20, 20, 20, 0.16);
+  --neutral-050A: rgba(20, 20, 20, 0.08);
+
+  --gradient-purple: linear-gradient(to bottom, var(--purple-500), var(--purple-700));
+  --gradient-grey: linear-gradient(to bottom, var(--neutral-050), var(--neutral-100));
+
+  --transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+  
+  --border-radius-double: 4px;
+
+  --button-height: var(--base-space-4);
+  --button-border-color: var(--neutral-200A);
+  --button-border: inset 0px 0px 0px 1px var(--button-border-color);
+  --button-box-shadow-active: inset 0 1px 3px 0 rgba(0, 0, 0, 0.32);
+  --button-border-radius: var(--border-radius-double);
+  --button-side-padding: var(--base-space-2);
+  --button-icon-size: 14px;
+}
+
+.my-button {
+  border: none;
+}

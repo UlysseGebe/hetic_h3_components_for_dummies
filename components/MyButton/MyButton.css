@@ -1,0 +1,32 @@
+:root {
+  --button-height: var(--base-space-4);
+  --button-border-color: var(--neutral-200A);
+  --button-border: inset 0px 0px 0px 1px var(--button-border-color);
+  --button-box-shadow-active: inset 0 1px 3px 0 rgba(0, 0, 0, 0.32);
+  --button-border-radius: var(--border-radius-double);
+  --button-side-padding: var(--base-space-2);
+  --button-icon-size: 14px;
+}
+
+.my-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding-left: var(--button-side-padding);
+  padding-right: var(--button-side-padding);
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--button-border-radius);
+  transition: var(--transition);
+  will-change: background-color;
+  cursor: pointer;
+}
+
+.my-button--primary {
+  background-image: var(--gradient-purple);
+}
+
+.my-button--secondary {
+  background-image: var(--gradient-grey);
+}

@@ -1,0 +1,12 @@
+{
+  "name": "h3-components-for-dummies",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "browser-sync start -s --no-notify --no-open --no-ui -f ./ --ignore node_modules"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
