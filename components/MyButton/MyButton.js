@@ -57,7 +57,7 @@ export default class AcButton extends HTMLElement {
   }
 
   set isLoading(val) {
-    return this.setAttribute('is-loading', val);
+    return this.setAttribute(val ? true : false);
   }
 
   get tag() {
@@ -88,13 +88,25 @@ export default class AcButton extends HTMLElement {
     this.removeEventListener('click', this._onClick);
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  /**
+   * Whenever one of the button properties changes, the button rerenders
+   * @return {function}
+   */
+  attributeChangedCallback() {
     this._render();
   }
 
+  /**
+   * Render the style
+   * @return {string}
+   */
   _buildStyle() {
     return `
       <style>
+        // ---------------------------
+        // DEFAULT
+        // ---------------------------
+
         :root {
           --button-height: var(--base-space-4);
           --button-border-color: var(--neutral-200A);
@@ -119,7 +131,26 @@ export default class AcButton extends HTMLElement {
           will-change: background-color;
           cursor: pointer;
         }
+
+        .my-button__icon {
+          width: var(--button-icon-size);
+          height: var(--button-icon-size);
+        }
+
+        .m-button__text {
+          color: inherit;
+          text-decoration: none;
+          // I advise you to use mixins for text styles
+          // @include text-action;
+        }
+
+        .m-button__text:empty {
+          display: none;
+        }
         
+        // ---------------------------
+        // THEMES
+        // ---------------------------
         .my-button--primary {
           background-image: var(--gradient-purple);
           box-shadow: var(--button-border);
@@ -135,21 +166,57 @@ export default class AcButton extends HTMLElement {
         }
         
         .my-button--secondary {
+          color: var(--neutral-900A);
           background-image: var(--gradient-grey);
+          box-shadow: inset 0px 0px 0px 1px var(--neutral-200A);
         }
 
-        .my-button__icon {
-          width: var(--button-icon-size);
-          height: var(--button-icon-size);
+        .my-button--secondary svg {
+          fill: var(--neutral-700A);
+        }
+
+        .my-button--secondary:hover {
+          box-shadow: inset 0px 0px 0px 1px var(--neutral-300A);
+          background-image: linear-gradient(to bottom, var(--neutral-050), var(--neutral-400));
+        }
+
+        // ---------------------------
+        // SIZES
+        // ---------------------------
+        .my-button--tiny {
+          --button-height: var(--base-space-3);
+          --button-side-padding: calc(var(--base-space-1) + (var(--base-space-1) / 2));
+        }
+
+        .my-button--small {
+          --button-icon-size: 12px;
+          --button-height: calc(var(--base-space-3) + (var(--base-space-1) / 2));
+        }
+
+        .my-button--large {
+          --button-height: var(--base-space-6);
+        }
+
+        .my-button--full-width {
+          justify-content: center;
+          width: 100%;
         }
       </style>
     `;
   }
 
+  /**
+   * Render the button content according to its loading state
+   * @return {string}
+   */
   _renderContent() {
-    return this.isLoading ? this._renderLoadingIcon() : `<span class="my-button__text">${this.text}</span>`;
+    return this.isLoading === 'true' ? this._renderLoadingIcon() : `<span class="my-button__text text-action">${this.text}</span>`;
   }
 
+  /**
+   * Render a SVG loading icon
+   * @return {string}
+   */
   _renderLoadingIcon() {
     return `
       <svg
@@ -168,7 +235,7 @@ export default class AcButton extends HTMLElement {
     return this.innerHTML = `
       ${this._buildStyle()}
       <button
-        class="my-button my-button--${this.look}"
+        class="my-button my-button--${this.look} my-button--${this.size}"
       >
         ${this._renderContent()}
       </button>
