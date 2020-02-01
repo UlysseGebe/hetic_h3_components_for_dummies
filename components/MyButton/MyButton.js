@@ -1,3 +1,5 @@
+import { html, render } from 'https://unpkg.com/lit-html@1.1.2/lit-html.js?module';
+
 /**
  * @module my-button
  * @description
@@ -10,7 +12,7 @@
  * @property {boolean} isLoading Wether the button is in loading state or not
  * @property {string} tag=button The button HTML tag 
  */
-export default class AcButton extends HTMLElement {
+export default class MyButton extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
@@ -92,7 +94,8 @@ export default class AcButton extends HTMLElement {
    * Whenever one of the button properties changes, the button rerenders
    * @return {function}
    */
-  attributeChangedCallback() {
+  attributeChangedCallback(name, oldVal, newVal) {
+    console.log(`Attribute: ${name} changed!`);
     this._render();
   }
 
@@ -232,7 +235,7 @@ export default class AcButton extends HTMLElement {
   }
 
   _render() {
-    return this.innerHTML = `
+    const dom = () => html`
       ${this._buildStyle()}
       <button
         class="my-button my-button--${this.look} my-button--${this.size}"
@@ -240,6 +243,8 @@ export default class AcButton extends HTMLElement {
         ${this._renderContent()}
       </button>
     `;
+    // console.log(render(dom(), document.body));
+    return render(dom(), document.body);
   }
 
   _onClick() {

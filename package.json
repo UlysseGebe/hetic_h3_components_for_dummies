@@ -4,9 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "browser-sync start -s --no-notify --no-open --no-ui -f ./ --ignore node_modules"
+    "dev": "browser-sync start -s --no-notify --no-open --no-ui -f ./ --ignore node_modules --cors",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/web-components": "^5.3.9",
     "browser-sync": "^2.26.7"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "npm": "^6.13.7"
   }
 }
