@@ -20,7 +20,7 @@ export default class AcButton extends HTMLElement {
     // accessible through shadow DOM
     // const root = this.attachShadow({ mode: 'open' });
     // root.innerHTML = `
-      
+
     // `;
   }
 
